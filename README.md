@@ -1,6 +1,8 @@
 
 # Software Engineering for Data Scientists 
 
+By: Sherry Huang
+
 This repository contains starter code for the **Software Engineering for Data Scientists** final project. Please reference your course materials for documentation on this repository's structure and important files. Happy coding!
 
 ### Repository Structure
