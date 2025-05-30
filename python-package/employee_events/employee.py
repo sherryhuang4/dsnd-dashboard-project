@@ -27,7 +27,7 @@ class Employee(QueryBase):
         # This query should return the data
         # for all employees in the database
         query = f"""
-        SELECT CONCAT(first_name, ' ', last_name) AS full_name, employee_id
+        SELECT CONCAT(first_name, ' ', last_name) AS full_name, {self.name}_id
         FROM {self.name}
         """
         return self.query(query)
