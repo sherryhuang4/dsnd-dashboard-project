@@ -76,7 +76,7 @@ class LineChart(MatplotlibViz):
         # Pass the `asset_id` argument to
         # the model's `event_counts` method to
         # receive the x (Day) and y (event count)
-        df = model.event_counts(asset_id)
+        df = model.events_counts(asset_id)
         
         # Use the pandas .fillna method to fill nulls with 0
         df.fillna(0, inplace = True)
@@ -104,7 +104,7 @@ class LineChart(MatplotlibViz):
         
         # call the .plot method for the
         # cumulative counts dataframe
-        df_count.plot(ax = axes)
+        df_count.plot(ax = ax)
         
         # pass the axis variable
         # to the `.set_axis_styling`
@@ -145,7 +145,7 @@ class BarChart(MatplotlibViz):
         
         # Index the second column of predict_proba output
         # The shape should be (<number of records>, 1)
-        predict_data = predict_data.iloc[:, 1]
+        predict_data = predict_data[:, 1]
         
         
         # Below, create a `pred` variable set to
