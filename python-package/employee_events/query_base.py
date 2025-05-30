@@ -1,5 +1,5 @@
 # Import any dependencies needed to execute sql queries
-from .sql_execution import QueryMixin
+from employee_events.sql_execution import QueryMixin
 import pandas as pd
 
 # Define a class called QueryBase
@@ -22,7 +22,7 @@ def QueryBase(QueryMixin):
     # Define an `event_counts` method
     # that receives an `id` argument
     # This method should return a pandas dataframe
-    def events_counts(self, id)
+    def events_counts(self, id):
 
         # QUERY 1
         # Write an SQL query that groups by `event_date`
