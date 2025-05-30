@@ -1,11 +1,11 @@
 # Import any dependencies needed to execute sql queries
-from .sql_execution import QueryMixin
+from employee_events.sql_execution import QueryMixin
 import pandas as pd
 
 # Define a class called QueryBase
 # Use inheritance to add methods
 # for querying the employee_events database.
-def QueryBase(QueryMixin):
+class QueryBase(QueryMixin):
 
     # Create a class attribute called `name`
     # set the attribute to an empty string
