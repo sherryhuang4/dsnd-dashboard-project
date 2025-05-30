@@ -2,7 +2,6 @@
 from employee_events.query_base import QueryBase
 
 # Import dependencies for sql execution
-from .sql_execution import query, pandas_query
 
 # Create a subclass of QueryBase
 # called  `Team`

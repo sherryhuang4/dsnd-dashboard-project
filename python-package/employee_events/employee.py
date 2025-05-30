@@ -3,7 +3,6 @@ from employee_events.query_base import QueryBase
 
 # Import dependencies needed for sql execution
 # from the `sql_execution` module
-from .sql_execution import query, pandas_query
 
 # Define a subclass of QueryBase
 # called Employee
