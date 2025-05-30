@@ -41,70 +41,70 @@ class ReportDropdown(Dropdown):
     # Overwrite the `component_data` method
     # Ensure the method uses the same parameters
     # as the parent class method
-    def component_data(self, entity_id, model)
+    def component_data(self, entity_id, model):
         # Using the model argument
         # call the employee_events method
         # that returns the user-type's
         # names and ids
-        model.employee_events()
+        return model.names()
 
 
 # Create a subclass of base_components/BaseComponent
 # called `Header`
-#### YOUR CODE HERE
+class Header(BaseComponent):
 
     # Overwrite the `build_component` method
     # Ensure the method has the same parameters
     # as the parent class
-    #### YOUR CODE HERE
+    def build_component(self, entity_id, model):
         
         # Using the model argument for this method
         # return a fasthtml H1 objects
         # containing the model's name attribute
-        #### YOUR CODE HERE
+        return H1(model.name)
           
 
 # Create a subclass of base_components/MatplotlibViz
 # called `LineChart`
-#### YOUR CODE HERE
+class LineChart(MatplotlibViz):
     
     # Overwrite the parent class's `visualization`
     # method. Use the same parameters as the parent
-    #### YOUR CODE HERE
+    def visualization(self, asset_id, model):
     
 
         # Pass the `asset_id` argument to
         # the model's `event_counts` method to
         # receive the x (Day) and y (event count)
-        #### YOUR CODE HERE
+        df = model.event_counts(asset_id)
         
         # Use the pandas .fillna method to fill nulls with 0
-        #### YOUR CODE HERE
+        df.fillna(0, inplace = True)
         
         # User the pandas .set_index method to set
         # the date column as the index
-        #### YOUR CODE HERE
+        df.set_index('event_date', inplace = True)
         
         # Sort the index
-        #### YOUR CODE HERE
+        df.sort_index(inplace = True)
         
         # Use the .cumsum method to change the data
         # in the dataframe to cumulative counts
-        #### YOUR CODE HERE
+        df_count = df.cumsum()
         
         
         # Set the dataframe columns to the list
         # ['Positive', 'Negative']
-        #### YOUR CODE HERE
+        df_count.columns = ['Positive', 'Negative']
         
         # Initialize a pandas subplot
         # and assign the figure and axis
         # to variables
-        #### YOUR CODE HERE
+        fig, axes = plt.subplots()
         
         # call the .plot method for the
         # cumulative counts dataframe
-        #### YOUR CODE HERE
+        df_count.plot(ax = axes)
         
         # pass the axis variable
         # to the `.set_axis_styling`
@@ -113,10 +113,11 @@ class ReportDropdown(Dropdown):
         # the border color and font color to black. 
         # Reference the base_components/matplotlib_viz file 
         # to inspect the supported keyword arguments
-        #### YOUR CODE HERE
+        self.set_axis_styling(bordercolor = 'black', fontcolor = 'black')
         
         # Set title and labels for x and y axis
-        #### YOUR CODE HERE
+        axes.set_xlabel("Cumulative Counts")
+        axes.set_ylabel("Date")
 
 
 # Create a subclass of base_components/MatplotlibViz
